@@ -24,7 +24,7 @@ const schemaTarea = mongoose.Schema({
     },
     description: {
         Type: String,
-        required: true
+        required: false
     },
     entrega:{
         Type: Date,

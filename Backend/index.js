@@ -8,3 +8,7 @@ app.use((req, res, next) =>{
     next()
 
 })
+
+app.listen(8080, ()=>{
+    console.log('Backend en linea.... :D')
+})
