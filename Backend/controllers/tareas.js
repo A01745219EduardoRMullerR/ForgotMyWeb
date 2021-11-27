@@ -1,8 +1,43 @@
 const mongoose = require('mongoose')
-const schemaMaterias = require('../models/materias')
+const schemaTarea = require('../models/tarea')
+/*
+* const schemaTarea = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    nombre:{
+        Type: String,
+        required: true
+    },
+    materia:{
+        Type: String,
+        required: true
+    },
+    description: {
+        Type: String,
+        required: false
+    },
+    entrega:{
+        Type: Date,
+        required: false
+    },
+    valor:{
+        Type: Number,
+        required: false
+    }
+
+})*/
+
 
 exports.agregarTarea = async (req, res) => {
-    //TODO: Decidir estructura de subida
+    const tareaNueva = new schemaTarea(req.body)
+    tareaNueva.id =new mongoose.Types.ObjectId()
+    try{
+        tareaNueva.save()
+        console.log('subida exitosa')
+        res.json({Status: 200})
+    } catch (err){
+        console.log("Error al guardar tarea (Error: " + err + ")")
+        res.json({Status: 500})
+    }
 }
 
 exports.getTareas = async (req, res) => {

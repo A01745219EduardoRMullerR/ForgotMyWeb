@@ -6,10 +6,22 @@ const schemaTarea = mongoose.Schema({
         Type: String,
         required: true
     },
-    materia:{
-        Type: String,
-        required: true
-    },
+    materia:[
+        {
+            nombre:{
+                Type: String,
+                required: true
+            },
+            clave:{
+                Type: mongoose.Schema.Types.ObjectId,
+                required: false
+            },
+            tareas: {
+                Type: Schema.ObjectId,
+                required: false
+            }
+        }
+    ],
     description: {
         Type: String,
         required: false
