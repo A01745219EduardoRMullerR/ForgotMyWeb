@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const schemaTarea = require('../models/tarea')
-/*
+
+
+/* SCHEMA---------------------------------------------------------------------------------------------
 * const schemaTarea = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     nombre:{
@@ -24,7 +26,9 @@ const schemaTarea = require('../models/tarea')
         required: false
     }
 
-})*/
+})
+*-----------------------------------------------------------------------------------------------------------
+*/
 
 
 exports.agregarTarea = async (req, res) => {
