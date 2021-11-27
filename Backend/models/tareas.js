@@ -16,10 +16,6 @@ const schemaTarea = mongoose.Schema({
                 Type: mongoose.Schema.Types.ObjectId,
                 required: false
             },
-            tareas: {
-                Type: Schema.ObjectId,
-                required: false
-            }
         }
     ],
     description: {

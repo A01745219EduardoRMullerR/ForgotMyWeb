@@ -47,11 +47,19 @@ exports.getTareas = async (req, res) => {
         console.log('Lista de Materias: \n' + tareas)
     } catch (err){
         console.log('Error de getTareas: ' + err)
+        res.json({Status: 400})
     }
 }
 
 exports.actualizarTarea = async(req, res) => {
-    //TODO: Ver estructura del JSON para realizar cambios en el esquema
+    try{
+        schemaTarea.findOneAndUpdate(req.body.filtro, req.body.cambio)
+        console.log('Cambio realizado con exito')
+        res.json({Status: 200})
+    } catch (err){
+        console.log("Error de operacion update (Error " + err + ')')
+        res.json({Status: 400})
+    }
 }
 
 exports.borrarTarea = async (req, res) => {
