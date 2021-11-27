@@ -1,7 +1,10 @@
 const router = require('express').Router()
-const playlistController = require("../controllers/materias")
+const controllerMaterias = require("../controllers/materias")
 
-router.get('/materias', )
-router.post('/altaMateria',)
-router.post('/actualizarMateria',)
-router.post('/eliminarMateria',)
+
+router.get('/materias', controllerMaterias.getMaterias)
+router.post('/agregarMateria', controllerMaterias.agregarMateria)
+router.post('/actualizarMateria', controllerMaterias.actualizarMaterias)
+router.post('/eliminarMateria',controllerMaterias.borrarMateria)
+
+module.exports = router
