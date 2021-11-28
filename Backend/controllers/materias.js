@@ -2,7 +2,16 @@ const mongoose = require('mongoose')
 const schemaMaterias = require('../models/materias')
 
 exports.agregarMateria = async (req, res) => {
-    //TODO: Decidir estructura de subida
+    const newMateria = new schemaMaterias(req.body)
+    newMateria._id = new mongoose.Types.ObjectId()
+    try{
+        await newMateria.save()
+        console.log("subida exitosa")
+        res.json({Status: 200})
+    } catch (err){
+        console.log("Error agregando la materia: " + err)
+        res.json({Status: 400})
+    }
 
 }
 
