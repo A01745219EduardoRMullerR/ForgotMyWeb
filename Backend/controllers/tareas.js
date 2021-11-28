@@ -3,32 +3,37 @@ const schemaTarea = require('../models/materias')
 
 
 /* SCHEMA---------------------------------------------------------------------------------------------
-* const schemaTarea = mongoose.Schema({
+
+
+const schemaTarea = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     nombre:{
-        Type: String,
-        required: true
-    },
-    materia:{
-        Type: String,
+        type: String,
         required: true
     },
     description: {
-        Type: String,
+        type: String,
+        required: false
+    },
+    materia: {
+        type: [schemaMaterias],
+        ref: 'Materias',
         required: false
     },
     entrega:{
-        Type: Date,
+        type: Date,
         required: false
     },
     valor:{
-        Type: Number,
+        type: Number,
         required: false
     }
 
 })
-*-----------------------------------------------------------------------------------------------------------
-*/
+
+
+*----------------------------------------------------------------------------------------------------------- */
+
 
 
 exports.agregarTarea = async (req, res) => {
@@ -46,7 +51,7 @@ exports.agregarTarea = async (req, res) => {
 
 exports.getTareas = async (req, res) => {
     try{
-        const tareas = await schemaMaterias.find()
+        const tareas = await schemaTarea.find()
         res.json(tareas)
         console.log('Lista de Materias: \n' + tareas)
     } catch (err){

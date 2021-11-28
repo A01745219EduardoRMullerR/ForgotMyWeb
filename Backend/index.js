@@ -16,12 +16,12 @@ app.use(express.static(path.join(__dirname, 'Backend')))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-app.use('/post', routeMaterias)
-app.use('/post', routeTareas)
+app.use('/Materias', routeMaterias)
+app.use('/Tareas', routeTareas)
 
 mongoose.connect('mongodb://user10:root@54.198.161.35:27017/base10?authSource=admin')
     .then(()=>{
-        app.listen(8081,()=>console.log("Servidor Back-End en línea"))
+        app.listen(8081,()=>console.log("Servidor Back-End en línea :D \n"))
     })
     .catch(err=>console.log(err))
 
