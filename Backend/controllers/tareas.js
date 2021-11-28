@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const schemaTarea = require('../models/tarea')
+const schemaTarea = require('../models/materias')
 
 
 /* SCHEMA---------------------------------------------------------------------------------------------
