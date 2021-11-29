@@ -73,7 +73,7 @@ exports.actualizarTarea = async(req, res) => {
 
 exports.borrarTarea = async (req, res) => {
     try{
-        await schemaMaterias.findOneAndDelete(req.body)
+        await schemaTarea.findOneAndDelete(req.body.nombre)
         res.json({Status: 200})
         console.log('Elemento borrado con exito')
     } catch(err){
