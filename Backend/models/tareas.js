@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const schemaMaterias = require('./materias')
+const schemaMaterias = require('./materias').schema
 
 const schemaTarea = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
