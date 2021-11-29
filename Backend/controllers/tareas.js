@@ -38,9 +38,9 @@ const schemaTarea = mongoose.Schema({
 
 exports.agregarTarea = async (req, res) => {
     const tareaNueva = new schemaTarea(req.body)
-    tareaNueva.id =new mongoose.Types.ObjectId()
+    tareaNueva._id =new mongoose.Types.ObjectId()
     try{
-        tareaNueva.save()
+        await tareaNueva.save()
         console.log('subida exitosa')
         res.json({Status: 200})
     } catch (err){
@@ -53,7 +53,7 @@ exports.getTareas = async (req, res) => {
     try{
         const tareas = await schemaTarea.find()
         res.json(tareas)
-        console.log('Lista de Materias: \n' + tareas)
+        console.log('Lista de Tareas: \n' + tareas)
     } catch (err){
         console.log('Error de getTareas: ' + err)
         res.json({Status: 400})
