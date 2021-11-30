@@ -5,11 +5,12 @@ import axios from 'axios'
 const ListaTareas = ()=>{
 
     const cargaTareas = async ()=>{
-        await axios.get('https://localhost8081/tarea')
+        const res = await axios.get('https://localhost:8081/Tareas/tarea')
+        console.log(res)
     }
 
     useEffect(()=>{
-        console.log('object')
+        cargaTareas()
 
     }, [])
 

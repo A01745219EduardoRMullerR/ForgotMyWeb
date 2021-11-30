@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const schemaTarea = require('../models/tareas')
+const schemaMateria = require('../models/materias')
 
 
 /* SCHEMA---------------------------------------------------------------------------------------------
@@ -39,6 +40,17 @@ const schemaTarea = mongoose.Schema({
 exports.agregarTarea = async (req, res) => {
     const tareaNueva = new schemaTarea(req.body)
     tareaNueva._id =new mongoose.Types.ObjectId()
+    if(req.body.materia){
+        const materia = new schemaMateria(req.body.materia)
+        materia._id = new mongoose.Types.ObjectId()
+        try{
+            await materia.save()
+            console.log('Materia subida con exito')
+            
+        }catch(err){
+            console.log("Materia no subida, error: " + err)
+        }
+    }
     try{
         await tareaNueva.save()
         console.log('subida exitosa')
@@ -50,6 +62,7 @@ exports.agregarTarea = async (req, res) => {
 }
 
 exports.getTareas = async (req, res) => {
+    console.log("-------------------------------------\n\nImprimiendo tareas...\n-------------------------------------------------")
     try{
         const tareas = await schemaTarea.find()
         res.json(tareas)
