@@ -4,6 +4,7 @@ const app = express()
 const routeMaterias = require('../Backend/routes/materias')
 const routeTareas = require('../Backend/routes/tareas')
 const mongoose = require("mongoose");
+const cors = require('cors')
 
 /*app.use((req, res, next) =>{
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -15,6 +16,7 @@ const mongoose = require("mongoose");
 app.use(express.static(path.join(__dirname, 'Backend')))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(cors())
 
 app.use('/Materias', routeMaterias)
 app.use('/Tareas', routeTareas)

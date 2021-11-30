@@ -9,7 +9,7 @@ const ListaMaterias = () =>{
     return (
 
         <div>
-            <h1>Hola</h1>
+            <h1 className='my-2 text-center'>Materias</h1>
         </div>
     )
 }
